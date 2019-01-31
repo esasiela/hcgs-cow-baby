@@ -209,88 +209,13 @@ void loop() {
     // check the red knob.  there are 17 zones for OMNI plus 16 midi channels.  if we've entered a new zone, change the midi channel.
     //int redVal = map(analogRead(PIN_POT_RED), 0, 1023, 0, 16);
     int redVal = analogRead(PIN_POT_RED);
-/*
-    if (redVal < 60) {
-      // 0
-      fastled[PIXEL_IDX_UTIL] = CRGB::Purple;
-    } else if (yellowVal < 120) {
-      // 1
-      fastled[PIXEL_IDX_UTIL] = CRGB::Green;
-    } else if (yellowVal < 180) {
-      // 2
-      fastled[PIXEL_IDX_UTIL] = CRGB::Orange;
-    } else {
-      fastled[PIXEL_IDX_UTIL] = CRGB::Blue;
-    }
-*/
+
     redVal = map(redVal, 0, 1023, 0, 17);
     fastled[PIXEL_IDX_UTIL] = channelModeColors[redVal];
 
     myMidiChannel = redVal;
-    
-    /*
-    switch (redVal) {
-      case 0 : 
-        fastled[PIXEL_IDX_UTIL] = CRGB::Purple;
-        break;
-      case 1 :
-        fastled[PIXEL_IDX_UTIL] = CRGB::Yellow;
-        break;
-      case 2 :
-        fastled[PIXEL_IDX_UTIL] = CRGB::Pink;
-        break;
-      case 3 :
-        fastled[PIXEL_IDX_UTIL] = CRGB::Green;
-        break;
-      case 4 :
-        fastled[PIXEL_IDX_UTIL] = CRGB::Green;
-        break;
-      case 5 :
-        fastled[PIXEL_IDX_UTIL] = CRGB::Green;
-        break;
-      case 6 :
-        fastled[PIXEL_IDX_UTIL] = CRGB::Green;
-        break;
-      case 7 :
-        fastled[PIXEL_IDX_UTIL] = CRGB::Green;
-        break;
-      case 8 :
-        fastled[PIXEL_IDX_UTIL] = CRGB::Green;
-        break;
-      case 9 :
-        fastled[PIXEL_IDX_UTIL] = CRGB::Green;
-        break;
-      case 10 :
-        fastled[PIXEL_IDX_UTIL] = CRGB::Green;
-        break;
-      case 3 :
-        fastled[PIXEL_IDX_UTIL] = CRGB::Green;
-        break;
-      case 3 :
-        fastled[PIXEL_IDX_UTIL] = CRGB::Green;
-        break;
-      case 3 :
-        fastled[PIXEL_IDX_UTIL] = CRGB::Green;
-        break;
-      case 3 :
-        fastled[PIXEL_IDX_UTIL] = CRGB::Green;
-        break;
-      case 3 :
-        fastled[PIXEL_IDX_UTIL] = CRGB::Green;
-        break;
-      case 3 :
-        fastled[PIXEL_IDX_UTIL] = CRGB::Green;
-        break;
-      default :
-        fastled[PIXEL_IDX_UTIL] = CRGB::Blue;
-        break;
-    }
-    */
     FastLED.show();
-
-    
   }
-
 
 
   if (btnBlue.update()) {
@@ -328,13 +253,8 @@ void loop() {
     FastLED.show();
   }
 
-
-
 //  servoRight.write(map(analogRead(PIN_POT_YELLOW), 0, 1023, 180, 0));
 //  servoLeft.write(map(analogRead(PIN_POT_ORANGE), 0, 1023, 0, 180));
-
-
-
 }
 
 /***********************************************
@@ -424,8 +344,13 @@ void noteOn(byte channel, byte note, byte velocity) {
 
 /***********************************************
  * noteOff()
+ *   this function is really only for debugging and early MIDI message development.
+ *   the actual turning off of a note (i.e. turning the light off and moving the servo to rest position)
+ *   is done by a timer in loop()
+ *   
  ***********************************************/
 void noteOff(byte channel, byte note, byte velocity) {
+
 
   if (myMidiChannel==MIDI_CHANNEL_OMNI || myMidiChannel==channel) {
 
