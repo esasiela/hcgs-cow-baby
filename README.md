@@ -1,4 +1,4 @@
-# hcgs-cow-baby
+# Cow Baby Drum Set
 
 This is the firmware, schematics, and artwork files for an Arduino-based MIDI Drum Set called Cow Baby Drum Set.
 
