@@ -5519,12 +5519,13 @@ In this library the device names are the same as the pin names of the symbols, t
 </net>
 <net name="N$6" class="0">
 <segment>
-<pinref part="JP5" gate="A" pin="1"/>
 <pinref part="D2" gate="G$1" pin="A"/>
-<wire x1="119.38" y1="96.52" x2="101.6" y2="96.52" width="0.1524" layer="91"/>
 <pinref part="LED2" gate="G$1" pin="A"/>
 <wire x1="101.6" y1="96.52" x2="83.82" y2="96.52" width="0.1524" layer="91"/>
 <wire x1="101.6" y1="109.22" x2="101.6" y2="96.52" width="0.1524" layer="91"/>
+<pinref part="JP5" gate="A" pin="3"/>
+<wire x1="119.38" y1="91.44" x2="101.6" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="101.6" y1="91.44" x2="101.6" y2="96.52" width="0.1524" layer="91"/>
 <junction x="101.6" y="96.52"/>
 </segment>
 </net>
@@ -5534,14 +5535,6 @@ In this library the device names are the same as the pin names of the symbols, t
 <wire x1="78.74" y1="96.52" x2="73.66" y2="96.52" width="0.1524" layer="91"/>
 <pinref part="SW3" gate="A" pin="1"/>
 <wire x1="73.66" y1="96.52" x2="73.66" y2="88.9" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$9" class="0">
-<segment>
-<pinref part="JP5" gate="A" pin="3"/>
-<wire x1="119.38" y1="91.44" x2="81.28" y2="91.44" width="0.1524" layer="91"/>
-<pinref part="SW3" gate="A" pin="2"/>
-<wire x1="81.28" y1="91.44" x2="81.28" y2="88.9" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$10" class="0">
@@ -5665,6 +5658,15 @@ In this library the device names are the same as the pin names of the symbols, t
 <pinref part="SW4" gate="G$1" pin="P$1"/>
 <pinref part="ARDUINO_NANO1" gate="G$1" pin="D4"/>
 <wire x1="154.94" y1="38.1" x2="129.54" y2="38.1" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$24" class="0">
+<segment>
+<pinref part="JP5" gate="A" pin="1"/>
+<wire x1="119.38" y1="96.52" x2="114.3" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="96.52" x2="114.3" y2="88.9" width="0.1524" layer="91"/>
+<pinref part="SW3" gate="A" pin="2"/>
+<wire x1="114.3" y1="88.9" x2="81.28" y2="88.9" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
